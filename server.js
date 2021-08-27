@@ -16,8 +16,9 @@ app.use(fileUpload({
 
 app.get('/', (req,res)=>{
     res.send('oioi');
-})
+});
 
+app.use('/', require('./routes/sobreRoute'));
 
 PORT =process.env.PORT || 5000;
 

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const path = require('path');
+const { dbConnection } = require('./database/config');
 
 const app = express();
 
@@ -14,11 +15,14 @@ app.use(fileUpload({
     useTempFiles:true
 }))
 
-app.get('/', (req,res)=>{
-    res.send('oioi');
-});
+// Base de datos
+dbConnection();
+
 
 app.use('/', require('./routes/sobreRoute'));
+
+
+
 
 PORT =process.env.PORT || 5000;
 

@@ -1,0 +1,5 @@
+npm i express mongoose dotenv cors
+npm i cloudinary 
+npm i concurrently
+npm i express-fileupload jsonwebtoken nodemailer
+npm i nodemon

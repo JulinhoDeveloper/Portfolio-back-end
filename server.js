@@ -18,7 +18,9 @@ app.use(fileUpload({
 // Base de datos
 dbConnection();
 
-
+//rotas
+app.use('/', require('./routes/educacaoRoute'));
+app.use('/', require('./routes/experienciaRoute'));
 app.use('/', require('./routes/sobreRoute'));
 
 

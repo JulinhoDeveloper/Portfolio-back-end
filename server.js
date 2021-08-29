@@ -19,8 +19,9 @@ app.use(fileUpload({
 dbConnection();
 
 //rotas
-app.use('/', require('./routes/educacaoRoute'));
+app.use('/user', require('./routes/userRoute'));
 app.use('/', require('./routes/experienciaRoute'));
+app.use('/', require('./routes/educacaoRoute'));
 app.use('/', require('./routes/sobreRoute'));
 
 

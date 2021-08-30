@@ -1,78 +1,20 @@
 const router = require('express').Router();
-const projetoSchema = require('../models/projetomodel');
+const {getProjeto, AddProjeto, getProjetoId, updateProjeto, delProjeto} = require('../controllers/projetoCtrl');
 
 //get projeto
-router.get('/projeto', async (req,res)=>{
-    try {
-        const project = await projetoSchema.find(req.body);
-        res.json(project);
-    } catch (err) {
-        res.status(500).json({msg:err})
-    }
-})
+router.get('/projeto', getProjeto );
 
 //ADD projeto
-router.post('/projeto', async (req,res)=>{
-    const {title, product_id, description, images} = req.body;
-
-    try {
-
-        const project = new projetoSchema({
-            title,
-            product_id,
-            description,
-            images
-        })
-        await project.save();
-        res.json({msg:"Adicionado com sucesso"})
-        
-    } catch (err) {
-        res.status(500).json({msg:err})
-    }
-});
+router.post('/projeto', AddProjeto );
   
 
 //get específico user pelo id
-router.get('/projeto/:id', async (req,res)=>{
-    try {
-        let project = await projetoSchema.findById(req.params.id)
-        res.json(project)
-    } catch (err) {
-        res.status(500).json({msg:err})
-    }
-});
+router.get('/projeto/:id', getProjetoId);
 
 
 //atualizando específico user pelo id
-router.put('/projeto/update/:id', async (req,res)=>{
-    const {title, product_id, description, images} = req.body;
-    try {
-        const project = await projetoSchema.findByIdAndUpdate(req.params.id,{
-
-            title,
-            product_id,
-            description,
-            images  
-        })
-        await project.save();
-        res.json({msg:"Atualizado com sucesso"})
-        
-    } catch (err) {
-        res.status(500).json({msg:err})
-    }
-});
-
+router.put('/projeto/update/:id',updateProjeto );
 //excluindo específico user pelo id
-router.delete('/projeto/:id',async(req,res)=>{
-    let project = await projetoSchema.findByIdAndDelete(req.param.id);
-    try {
-        await project;
-        res.json({msg:"Excluído com sucesso"})
-    } catch (err) {
-        res.status(500).json({msg:err})
-    }
-});
-
-
+router.delete('/projeto/:id', delProjeto);
 
 module.exports = router;

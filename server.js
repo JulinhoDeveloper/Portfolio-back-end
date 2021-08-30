@@ -16,7 +16,7 @@ app.use(fileUpload({
 }))
 
 // Base de datos
-dbConnection();
+dbConnection()
 
 //rotas
 app.use('/contato', require('./routes/contatoRoute'));

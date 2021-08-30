@@ -3,3 +3,5 @@ npm i cloudinary
 npm i concurrently
 npm i express-fileupload jsonwebtoken nodemailer
 npm i nodemon
+npm i bcrypt
+

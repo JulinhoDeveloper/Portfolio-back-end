@@ -19,6 +19,7 @@ app.use(fileUpload({
 dbConnection();
 
 //rotas
+app.use('/contato', require('./routes/contatoRoute'));
 app.use('/user', require('./routes/userRoute'));
 app.use('/', require('./routes/experienciaRoute'));
 app.use('/', require('./routes/educacaoRoute'));

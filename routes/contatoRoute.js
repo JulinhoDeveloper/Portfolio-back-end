@@ -35,7 +35,7 @@ smtpTransport.sendMail(mailOptions, (err, response)=>{
     try {
         if(err) return res.status(400).json({msg:err})
         else{
-            return res.status(200).json({msg:`Sua mensagem foi enviada`})
+            return res.status(200).json({msg:`A sua mensagem foi enviada`})
         }
 
     } catch (err) {

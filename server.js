@@ -6,6 +6,7 @@ const fileUpload = require('express-fileupload');
 const path = require('path');
 const { dbConnection } = require('./database/config');
 
+
 const app = express();
 
 // middleware 
@@ -16,14 +17,16 @@ app.use(fileUpload({
 }))
 
 // Base de datos
-dbConnection()
+dbConnection();
 
 //rotas
 app.use('/contato', require('./routes/contatoRoute'));
 app.use('/user', require('./routes/userRoute'));
+app.use('/', require('./routes/projetoRoute'));
 app.use('/', require('./routes/experienciaRoute'));
 app.use('/', require('./routes/educacaoRoute'));
 app.use('/', require('./routes/sobreRoute'));
+app.use('/', require('./routes/upload'));
 
 
 
